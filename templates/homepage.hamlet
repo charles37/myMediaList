@@ -1,0 +1,31 @@
+<div .container>
+  <h1>MyMediaList
+  <p>Welcome to MyMediaList, where you can keep track of all the media you've watched, read, or played!
+
+  $maybe muid <- muid
+    <h2>Your MediaList
+    <table .table>
+      <thead>
+        <tr>
+          <th>Title
+          <th>Author
+          <th>Release Date
+          <th>Media Type
+      <tbody>
+        $forall Entity mid media <- mediaList
+          <tr>
+            <td>#{mediaTitle media}
+            <td>#{mediaAuthor media}
+            <td>#{mediaReleaseDate media}
+            <td>#{mediaMediaType media}
+    <p>
+      <a href="@{AddR}" .btn.btn-primary>
+        Add a new item
+    <p>
+      <a href="@{ProfileR}" .btn.btn-default>
+        View your profile
+  $nothing
+    <h2>Please log in to view your MediaList
+    <p>
+      <a href="@{AuthR LoginR}" .btn.btn-primary>
+        Log in
