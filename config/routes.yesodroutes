@@ -20,11 +20,13 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 / HomeR GET
-/user/#UserId UserR GET
+-- /user/#UserId UserR GET
 /add AddR GET POST
-/delete/#MediaId DeleteR DELETE
-/edit/#MediaId EditR GET POST
+-- /delete/#MediaId DeleteR DELETE
+-- /edit/#MediaId EditR GET POST
 /profile ProfileR GET
+/compare/#UserId/#UserId CompareR GET
+
+
 -- /login LoginR GET POST
 -- /logout LogoutR GET
-/compare/#UserId1/#UserId2 CompareR GET

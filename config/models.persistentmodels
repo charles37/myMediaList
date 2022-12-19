@@ -32,11 +32,19 @@ MediaType
 
 Media
     title Text
-    author Text Maybe
-    releaseDate Day Maybe
+    author Text 
+    releaseDate Day 
     mediaType MediaTypeId
     UniqueTitle title
     deriving Show
+
+UserMedia
+    user UserId
+    media MediaId
+    UniqueUserMedia user media
+    deriving Show
+
+
 -- User
 --     username Text
 --     email Text
@@ -44,8 +52,3 @@ Media
 --     UniqueUsername username
 --     UniqueEmail email
 --     deriving Show
-UserMedia
-    user UserId
-    media MediaId
-    UniqueUserMedia user media
-    deriving Show

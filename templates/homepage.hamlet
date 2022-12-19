@@ -2,7 +2,7 @@
   <h1>MyMediaList
   <p>Welcome to MyMediaList, where you can keep track of all the media you've watched, read, or played!
 
-  $maybe muid <- muid
+  $maybe mUser <- mUser
     <h2>Your MediaList
     <table .table>
       <thead>
@@ -12,12 +12,12 @@
           <th>Release Date
           <th>Media Type
       <tbody>
-        $forall Entity mid media <- mediaList
+        $forall media <- mediaList
           <tr>
             <td>#{mediaTitle media}
             <td>#{mediaAuthor media}
-            <td>#{mediaReleaseDate media}
-            <td>#{mediaMediaType media}
+            <td>#{show (mediaReleaseDate media)}
+            <td>#{show (mediaMediaType media)}
     <p>
       <a href="@{AddR}" .btn.btn-primary>
         Add a new item
