@@ -34,6 +34,8 @@ dependencies:
 - fast-logger >=2.2 && <3.2
 - wai-logger >=2.2 && <2.5
 - esqueleto
+- req
+- aeson
 - file-embed
 - safe
 - unordered-containers

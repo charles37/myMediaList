@@ -1,10 +1,35 @@
-<div .ui.container>
-
-    <h1>
-      Access granted!
-
-    <p>
-      This page is protected and access is allowed only for authenticated users.
-
-    <p>
-      Your data is protected with us <strong><span class="username">#{userIdent user}</span></strong>!
+<div .container>
+  <h1>Profile
+  <p>Welcome to your profile! Here you can view and manage your MediaList.
+  
+  <h2>Your MediaList
+  <table .table>
+    <thead>
+        <tr>
+        <th>Title
+        <th>Author
+        <th>Release Date
+        <th>Media Type
+        <th>
+    <tbody>
+        $forall ((media, medType), medId) <- mediaList
+        $# mediaList :: [((Maybe Media, Maybe MediaType), MediaId)]
+          <tr .selectable>
+              <td>#{fromMaybe "" (fmap mediaTitle media)}
+              <td>#{fromMaybe "" (maybe (Just "") mediaAuthor media)}
+              <td>#{fromMaybe "" (fmap (show . mediaReleaseDate) media)}
+              <td>#{maybe "" mediaTypeName medType}
+              <td>
+                  <form method=post action=@{DeleteR (medId)}>
+                      <input type=submit value="Delete" .btn.btn-danger>
+  <p>
+    <a href="@{AddR}" .btn.btn-primary>
+      Add a new item
+  <p>
+    <a href="@{HomeR}" .btn.btn-default>
+      Return to home page
+  $# Add a search bar here so that users can search for another user by username and then go to the ComareR route with their userId and the other user's userId
+  <h2>Search for another user
+  <form method=post action=@{SearchUserR} enctype=#{enctype}>
+    ^{widget}
+    <input type="submit" value="Search" .btn.btn-primary>

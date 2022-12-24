@@ -3,24 +3,24 @@
   <p>Welcome to MyMediaList, where you can keep track of all the media you've watched, read, or played!
 
   $maybe mUser <- mUser
-    <h2>Your MediaList
-    <table .table>
-      <thead>
-        <tr>
-          <th>Title
-          <th>Author
-          <th>Release Date
-          <th>Media Type
-      <tbody>
-        $forall media <- mediaList
-          <tr>
-            <td>#{mediaTitle media}
-            <td>#{mediaAuthor media}
-            <td>#{show (mediaReleaseDate media)}
-            <td>#{show (mediaMediaType media)}
-    <p>
-      <a href="@{AddR}" .btn.btn-primary>
-        Add a new item
+$#     <h2>Your MediaList
+$#     <table .table>
+$#       <thead>
+$#         <tr>
+$#           <th>Title
+$#           <th>Author
+$#           <th>Release Date
+$#           <th>Media Type
+$#       <tbody>
+$#         $forall media <- mediaList
+$#           <tr>
+$#             <td>#{mediaTitle media}
+$#             <td>#{fromMaybe "" (mediaAuthor media)}
+$#             <td>#{show (mediaReleaseDate media)}
+$#             <td>#{show (mediaMediaType media)}
+$#     <p>
+$#       <a href="@{AddR}" .btn.btn-primary>
+$#         Add a new item
     <p>
       <a href="@{ProfileR}" .btn.btn-default>
         View your profile

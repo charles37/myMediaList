@@ -17,8 +17,6 @@
 --     deriving Eq
 --     deriving Show
 
-
-
 User
     ident Text
     password Text Maybe
@@ -32,18 +30,17 @@ MediaType
 
 Media
     title Text
-    author Text 
+    author Text Maybe
     releaseDate Day 
     mediaType MediaTypeId
     UniqueTitle title
-    deriving Show
+    deriving Show Eq
 
 UserMedia
     user UserId
     media MediaId
     UniqueUserMedia user media
-    deriving Show
-
+    deriving Show 
 
 -- User
 --     username Text

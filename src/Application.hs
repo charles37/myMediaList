@@ -46,6 +46,11 @@ import Handler.Add
 import Handler.Compare
 -- import Handler.Comment
 import Handler.Profile
+import Handler.Fill
+import Handler.Delete
+import Handler.SearchUser
+import Handler.CurUser
+import Handler.AllMedia
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
@@ -85,6 +90,18 @@ makeFoundation appSettings = do
 
     -- Perform database migration using our application's logging settings.
     runLoggingT (runSqlPool (runMigration migrateAll) pool) logFunc
+
+    -- set up database with dumy data
+
+
+    -- Media
+    -- title Text
+    -- author Text Maybe
+    -- releaseDate Day 
+    -- mediaType MediaTypeId
+    -- UniqueTitle title
+    -- deriving Show Eq
+
 
     -- Return the foundation
     return $ mkFoundation pool

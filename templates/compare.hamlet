@@ -1,0 +1,21 @@
+<div .container>
+  <h1>Compare!
+  <p>Here you can see the overlap between #{userName1} and #{userName2}'s media lists.
+  <h2>Overlap: #{show overlap}%
+  <table .table>
+    <thead>
+      <tr>
+        <th>Title
+        <th>Author
+        <th>Release Date
+        <th>Media Type
+    <tbody>
+      $forall media <- intersect mediaList1 mediaList2
+        <tr>
+          <td>#{mediaTitle media}
+          <td>#{fromMaybe "" (mediaAuthor media)}
+          <td>#{show (mediaReleaseDate media)}
+          <td>#{showMediaType (mediaMediaType media)}
+  <p>
+    <a href="@{HomeR}" .btn.btn-default>
+      Return to home page

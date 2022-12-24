@@ -1,0 +1,20 @@
+<div .container>
+  <h1>Add a new media item
+  <form method=post action=@{AddR}>
+    <div .form-group>
+      <label for=mediaId>Select a media item:
+      <select .form-control name=mediaId>
+    $#   get all media items and their keys
+    $#   for each media item, create an option with the key as the value and the title as the text
+        $forall (Entity mediaKey media) <- mediaList
+            <option value=#{show $ fromSqlKey mediaKey}>#{mediaTitle media}        
+    <input .btn.btn-primary type=submit value="Add media">
+  $# a search bar that will search for media items by title, drops down a list of results as the user types, and allows the user to select one
+  $# <div .form-group>
+  $#   <label for=mediaSearch>Search for a media item:
+  $#   <input .form-control type=text name=mediaSearch id=mediaSearch>
+  $# <div .form-group>
+  $#   <label for=mediaSearchResults>Search results:
+  $#   <select .form-control name=mediaSearchResults id=mediaSearchResults>
+  $# <input .btn.btn-primary type=submit value="Add media">
+  $# <a .btn.btn-default href=@{MediaR}>Cancel</a>

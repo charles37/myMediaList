@@ -22,11 +22,20 @@
 / HomeR GET
 -- /user/#UserId UserR GET
 /add AddR GET POST
--- /delete/#MediaId DeleteR DELETE
--- /edit/#MediaId EditR GET POST
+/delete/#MediaId DeleteR POST
 /profile ProfileR GET
 /compare/#UserId/#UserId CompareR GET
 
+
+/allMedia AllMediaR GET
+
+
+/searchUser SearchUserR GET POST
+
+
+-- Developer Routes
+/fill FillR GET
+/curUser CurUserR GET
 
 -- /login LoginR GET POST
 -- /logout LogoutR GET

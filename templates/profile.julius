@@ -1,0 +1,23 @@
+$(document).ready(function() {
+    $('table').addClass('table-striped');
+});
+
+
+/*
+$(document).ready(function() {
+  // Add a click event handler to the "Delete" buttons on the page
+  $('.btn-delete').click(function(event) {
+    // Get the mediaId for the clicked button
+    let mediaId = $(this).data('media-id');
+
+    // Send a DELETE request to the server to delete the corresponding UserMedia record
+    $.ajax({
+      url: '/delete/' + mediaId,
+      type: 'DELETE',
+      success: function(result) {
+        // On success, remove the table row for the deleted item
+        $('#media-' + mediaId).remove();
+      }
+    });
+  });
+});*/
