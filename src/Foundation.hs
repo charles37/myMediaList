@@ -20,11 +20,16 @@ import Control.Monad.Logger (LogSource)
 import Yesod.Auth.Dummy
 
 import Yesod.Auth.OpenId    (authOpenId, IdentifierType (Claimed))
+import Yesod.Auth.OAuth2.Google 
 import Yesod.Default.Util   (addStaticContentExternal)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Api.Data
+
+-- oauth2Google
+
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -36,6 +41,7 @@ data App = App
     , appConnPool    :: ConnectionPool -- ^ Database connection pool.
     , appHttpManager :: Manager
     , appLogger      :: Logger
+    , getApiSub      :: ApiSub  -- ^ API sub site
     }
 
 data MenuItem = MenuItem
@@ -267,8 +273,10 @@ instance YesodAuth App where
     -- You can add other plugins like Google Email, email or OAuth here
     authPlugins :: App -> [AuthPlugin App]
     authPlugins app = [authOpenId Claimed []] ++ extraAuthPlugins
+        -- oauth2Google later
         -- Enable authDummy login if enabled.
         where extraAuthPlugins = [authDummy | appAuthDummyLogin $ appSettings app]
+
 
 -- | Access function to determine if a user is logged in.
 isAuthenticated :: Handler AuthResult

@@ -51,6 +51,8 @@ import Handler.Delete
 import Handler.SearchUser
 import Handler.CurUser
 import Handler.AllMedia
+import Api.Data
+import Api
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
@@ -61,6 +63,8 @@ mkYesodDispatch "App" resourcesApp
 -- performs initialization and returns a foundation datatype value. This is also
 -- the place to put your migrate statements to have automatic database
 -- migrations handled by Yesod.
+
+
 makeFoundation :: AppSettings -> IO App
 makeFoundation appSettings = do
     -- Some basic initializations: HTTP connection manager, logger, and static
@@ -70,6 +74,9 @@ makeFoundation appSettings = do
     appStatic <-
         (if appMutableStatic appSettings then staticDevel else static)
         (appStaticDir appSettings)
+
+    getApiSub <- return ApiSub
+
 
     -- We need a log function to create a connection pool. We need a connection
     -- pool to create our foundation. And we need our foundation to get a
@@ -90,17 +97,6 @@ makeFoundation appSettings = do
 
     -- Perform database migration using our application's logging settings.
     runLoggingT (runSqlPool (runMigration migrateAll) pool) logFunc
-
-    -- set up database with dumy data
-
-
-    -- Media
-    -- title Text
-    -- author Text Maybe
-    -- releaseDate Day 
-    -- mediaType MediaTypeId
-    -- UniqueTitle title
-    -- deriving Show Eq
 
 
     -- Return the foundation

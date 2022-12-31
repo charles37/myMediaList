@@ -13,8 +13,6 @@
 
 -- /profile ProfileR GET
 
-
-
 /static StaticR Static appStatic
 /auth   AuthR   Auth   getAuth
 /favicon.ico FaviconR GET
@@ -26,6 +24,7 @@
 /profile ProfileR GET
 /compare/#UserId/#UserId CompareR GET
 
+/api/v1 ApisiteR ApiSub getApiSub
 
 /allMedia AllMediaR GET
 
