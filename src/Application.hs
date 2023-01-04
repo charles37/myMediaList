@@ -51,7 +51,8 @@ import Handler.Delete
 import Handler.SearchUser
 import Handler.CurUser
 import Handler.AllMedia
-
+import Handler.Test
+import ApiSub.Data
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
 -- comments there for more details.
@@ -70,7 +71,9 @@ makeFoundation appSettings = do
     appStatic <-
         (if appMutableStatic appSettings then staticDevel else static)
         (appStaticDir appSettings)
-
+    
+    -- assign the ApiSubsite ApiSub via the appApiSub field of App
+    let appApiSub = ApiSub
     -- We need a log function to create a connection pool. We need a connection
     -- pool to create our foundation. And we need our foundation to get a
     -- logging function. To get out of this loop, we initially create a
@@ -91,16 +94,6 @@ makeFoundation appSettings = do
     -- Perform database migration using our application's logging settings.
     runLoggingT (runSqlPool (runMigration migrateAll) pool) logFunc
 
-    -- set up database with dumy data
-
-
-    -- Media
-    -- title Text
-    -- author Text Maybe
-    -- releaseDate Day 
-    -- mediaType MediaTypeId
-    -- UniqueTitle title
-    -- deriving Show Eq
 
 
     -- Return the foundation

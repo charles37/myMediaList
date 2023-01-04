@@ -78,7 +78,6 @@ getProfileR = do
     let mediaList = filter (isJust . snd . fst) mediaList'
     --mediaList :: [(Maybe Media, Maybe MediaType)]
     
-    
 
     -- Searchbar for Users to compare
     (widget, enctype) <- generateFormPost searchUserForm
