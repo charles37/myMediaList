@@ -144,10 +144,13 @@ instance Yesod App where
         -- default-layout-wrapper is the entire page. Since the final
         -- value passed to hamletToRepHtml cannot be a widget, this allows
         -- you to use normal widget features in default-layout.
-
         pc <- widgetToPageContent $ do
+            -- addStylesheet $ StaticR css_bootstrap_css
             addStylesheet $ StaticR css_bootstrap_css
-            -- addStylesheet $ StaticR css_output_css
+            addScript $ StaticR js_bootstrap_js
+            addScript $ StaticR js_jquery_3_6_3_js
+            addScript $ StaticR builds_header_js
+            
                                     -- ^ generated from @Settings/StaticFiles.hs@
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")

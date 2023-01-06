@@ -22,7 +22,9 @@ getTestR = do
 
     defaultLayout $ do
         setTitle "MyMediaList | Home"
-        addScript $ StaticR builds_bundle_js
-        
+        addScript $ StaticR builds_homepage_js
+        addScript $ StaticR builds_footer_js
+        addScript $ StaticR builds_header_js
+
         $(widgetFile "test")
 

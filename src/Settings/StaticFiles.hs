@@ -18,8 +18,9 @@ import Yesod.Static (staticFilesList)
 -- If the identifier is not available, you may use:
 --
 --     StaticFile ["js", "script.js"] []
--- staticFiles (appStaticDir compileTimeAppSettings)
-staticFilesList "static" ["builds/bundle.js", "css/bootstrap.css"]
+
+
+staticFilesList "static" ["builds/homepage.js" ,"builds/footer.js",  "builds/header.js", "js/bootstrap.js", "js/jquery-3.6.3.js", "css/bootstrap.css"]
 
 -- If you prefer to updating the references by force
 --  -- especially when you are devloping like `stack exec -- yesod devel` --

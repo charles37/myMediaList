@@ -1,26 +1,32 @@
 <!-- Static navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">MyMediaList</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
-          <li :Just route == mcurrentRoute:.active>
-            <a href="@{route}" class="nav-link">#{label}</a>
+$# <nav class="navbar navbar-expand-lg navbar-light bg-light">
+$#   <div class="container">
+$#     <a class="navbar-brand" href="#">MyMediaList</a>
+$#     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+$#       <span class="navbar-toggler-icon">
+$#     <div class="collapse navbar-collapse" id="navbarNav">
+$#       <ul class="navbar-nav">
+$#         $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
+$#           <li :Just route == mcurrentRoute:.active>
+$#             <a href="@{route}" class="nav-link">#{label}</a>
 
-        $# <li class="nav-item dropdown">
-        $#   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        $#     Compare
-        $#   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        $#     <a class="dropdown-item" href="@{ProfileR}">Compare with a Friend</a>
-        $#     <a class="dropdown-item" href="@{ProfileR}">Compare with a Celebrity</a>
+$#         $# <li class="nav-item dropdown">
+$#         $#   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+$#         $#     Compare
+$#         $#   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+$#         $#     <a class="dropdown-item" href="@{ProfileR}">Compare with a Friend</a>
+$#         $#     <a class="dropdown-item" href="@{ProfileR}">Compare with a Celebrity</a>
 
-      <ul class="navbar-nav ml-auto">
-        $forall MenuItem label route _ <- navbarRightFilteredMenuItems
-          <li :Just route == mcurrentRoute:.active>
-            <a href="@{route}" class="nav-link">#{label}</a>
+$#       <ul class="navbar-nav ml-auto">
+$#         $forall MenuItem label route _ <- navbarRightFilteredMenuItems
+$#           <li :Just route == mcurrentRoute:.active>
+$#             <a href="@{route}" class="nav-link">#{label}</a>
+<div #header>
+
+
+
+
+
 
 <!-- Page Contents -->
 
@@ -30,14 +36,10 @@
             $if (Just HomeR == mcurrentRoute)
                 ^{widget}
             $else
-                <h1 className="display-4">#{title}
-                $# <p className="lead">#{description}
                 <hr className="my-4" />
                 ^{widget}
 
 
 <!-- Footer -->
-<footer className="footer mt-5 bg-light">
-    <div className="container">
-        <p className="text-muted text-center py-3">
-            #{appCopyright $ appSettings master}
+
+<div #footer>
