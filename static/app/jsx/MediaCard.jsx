@@ -1,12 +1,21 @@
 import React from 'react';
 
-//dummy component for testing
-const Card = () => {
-    return (
-        <div>
-            <h1>Media Card</h1>
-        </div>
-    );
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
+
+function MediaCard({ title, description, image, link }) {
+  return (
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={image} />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <Button variant="primary" href={link}>
+          View Media
+        </Button>
+      </Card.Body>
+    </Card>
+  );
 }
 
-export default Card;
+export default MediaCard;
